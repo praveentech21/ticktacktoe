@@ -1,8 +1,19 @@
 let currentPlayer = "Ravi";
 let cells = document.querySelectorAll(".cell");
+let count = 0;
+
+//time taken
+var time = 0;
+var timer = setInterval(function () {
+  time++;
+  document.getElementById("time").innerHTML = time + " Seconds";
+}, 1000);
 
 function placeSymbol(index) {
   if (!cells[index].textContent) {
+    count++;
+    document.getElementById("boxes").innerHTML =
+      "Boxes Remaning :" + (9 - count);
     var claping = new Audio("claps.mp3");
     claping.play();
 
